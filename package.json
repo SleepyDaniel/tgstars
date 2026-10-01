@@ -1,0 +1,76 @@
+{
+  "name": "tgstars",
+  "version": "0.1.0",
+  "description": "Take Telegram Stars payments in your bot and keep track of who paid for what",
+  "type": "module",
+  "license": "MIT",
+  "author": "SleepyDaniel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SleepyDaniel/tgstars.git"
+  },
+  "keywords": [
+    "telegram",
+    "telegram-stars",
+    "payments",
+    "subscriptions",
+    "telegram-bot"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./sql": "./dist/sql.js",
+    "./testing": "./dist/testing.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "size": "size-limit",
+    "release": "bumpp",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@biomejs/biome": "^2.5.14",
+    "@size-limit/preset-small-lib": "^14.1.0",
+    "@types/node": "^26.6.3",
+    "@vitest/coverage-v8": "^5.0.2",
+    "bumpp": "^12.3.0",
+    "grammy": "^1.46.0",
+    "postgres": "^3.4.9",
+    "publint": "^0.3.24",
+    "size-limit": "^14.1.0",
+    "telegraf": "^4.16.3",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  },
+  "size-limit": [
+    {
+      "name": "tgstars",
+      "path": "dist/index.js",
+      "import": "{ tgstars }",
+      "limit": "3.9 kB"
+    },
+    {
+      "name": "tgstars/sql",
+      "path": "dist/sql.js",
+      "limit": "1.2 kB"
+    },
+    {
+      "name": "tgstars/testing",
+      "path": "dist/testing.js",
+      "limit": "2.3 kB"
+    }
+  ]
+}
